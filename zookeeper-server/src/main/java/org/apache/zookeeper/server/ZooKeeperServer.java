@@ -1213,6 +1213,10 @@ public class ZooKeeperServer implements SessionExpirer, ServerStats.Provider {
                 // Always treat packet from the client as a possible
                 // local request.
                 setLocalSessionFlag(si);
+                /*// print the data
+                byte[] bytes = new byte[si.request.remaining()];
+                si.request.get(bytes);
+                System.out.println("the client msg: " + new String(bytes));*/
                 submitRequest(si);
             }
         }
